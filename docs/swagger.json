@@ -1,0 +1,815 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Analyze a network based on graph properties",
+        "title": "graph-analyzer API",
+        "contact": {
+            "name": "API Support",
+            "url": "https://gitlab.ost.ch/graph-analyzer/api/-/issues"
+        },
+        "version": "2.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/graph-property/average-clustering-coefficient": {
+            "get": {
+                "description": "Get average clustering coefficient of the graph. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get average clustering coefficient",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.AverageClusteringCoefficientProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/connected": {
+            "get": {
+                "description": "Get connected status of the graph. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get connected status",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.ConnectedProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/degree-assortativity-coefficient": {
+            "get": {
+                "description": "Get degree assortativity coefficient of the graph. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get degree assortativity coefficient",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.DegreeAssortativityCoefficientProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/degree-correlation": {
+            "get": {
+                "description": "Get degree correlation of the graph. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get degree correlation",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.DegreeCorrelationProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/degree-distribution": {
+            "get": {
+                "description": "Get degree distribution of the graph. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get degree distribution",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.DegreeDistributionProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/density": {
+            "get": {
+                "description": "Get density of the graph. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get density",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.DensityProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/diameter": {
+            "get": {
+                "description": "Get diameter of the graph. Based on directed and weighted multi graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get diameter",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.DiameterProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/full-graph": {
+            "get": {
+                "description": "Get full network graph (nodes, edges)",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get full graph",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.FullGraphProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/general-information": {
+            "get": {
+                "description": "Get general information about the graph (number of nodes, number of edges, network name, creation date)",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get general information",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.GeneralInformationProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/has-cut-edge": {
+            "get": {
+                "description": "Get if graph has a cut edge. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get has cut edge",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.HasCutEdgeProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/has-cut-vertex": {
+            "get": {
+                "description": "Get if graph has a cut vertex. Based on undirected and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get has cut vertex",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.HasCutVertexProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/query": {
+            "post": {
+                "description": "Get results of query on network graph",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties-query"
+                ],
+                "summary": "Get query results",
+                "parameters": [
+                    {
+                        "description": "Type",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/action.QueryRequestModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.QueryProjection"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/graph-property/robustness": {
+            "get": {
+                "description": "Get robustness of the graph for a high-degree attack. Based on and unweighted simple graph.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "graph-properties"
+                ],
+                "summary": "Get robustness",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.RobustnessProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/live": {
+            "get": {
+                "description": "Check if system is available (used in k8s)",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "infrastructure"
+                ],
+                "summary": "Get system liveness",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/ready": {
+            "get": {
+                "description": "Check if system is ready (used in k8s)",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "infrastructure"
+                ],
+                "summary": "Get system readiness",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/upload": {
+            "post": {
+                "description": "Upload graph-file (gexf)",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "upload"
+                ],
+                "summary": "Upload gexf",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "GEXF file",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.UploadProjection"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/responder.UploadErrorProjection"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/responder.UploadErrorProjection"
+                        }
+                    }
+                }
+            }
+        },
+        "/upload-status": {
+            "get": {
+                "description": "Get connected status of the data-collector gexf endpoint",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "upload"
+                ],
+                "summary": "Get data-collector status",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responder.UploadStatusProjection"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "action.QueryRequestModel": {
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "maxLength": 30,
+                    "minLength": 5,
+                    "enum": [
+                        "cut_edges",
+                        "cut_vertices"
+                    ],
+                    "example": "cut_edges"
+                }
+            }
+        },
+        "responder.AverageClusteringCoefficientProjection": {
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "properties": {
+                "value": {
+                    "type": "number",
+                    "example": 0.5
+                }
+            }
+        },
+        "responder.ConnectedProjection": {
+            "type": "object",
+            "required": [
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "type": "boolean",
+                    "example": true
+                }
+            }
+        },
+        "responder.DegreeAssortativityCoefficientProjection": {
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "properties": {
+                "value": {
+                    "type": "number",
+                    "example": 0.5
+                }
+            }
+        },
+        "responder.DegreeCorrelationProjection": {
+            "type": "object",
+            "required": [
+                "values"
+            ],
+            "properties": {
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responder.DegreeCorrelationValueProjection"
+                    }
+                }
+            }
+        },
+        "responder.DegreeCorrelationValueProjection": {
+            "type": "object",
+            "required": [
+                "average",
+                "degree"
+            ],
+            "properties": {
+                "average": {
+                    "type": "number",
+                    "example": 1.66
+                },
+                "degree": {
+                    "type": "integer",
+                    "example": 4
+                }
+            }
+        },
+        "responder.DegreeDistributionProjection": {
+            "type": "object",
+            "required": [
+                "values"
+            ],
+            "properties": {
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responder.DegreeDistributionValueProjection"
+                    }
+                }
+            }
+        },
+        "responder.DegreeDistributionValueProjection": {
+            "type": "object",
+            "required": [
+                "amount",
+                "degree"
+            ],
+            "properties": {
+                "amount": {
+                    "type": "integer",
+                    "example": 4
+                },
+                "degree": {
+                    "type": "integer",
+                    "example": 4
+                }
+            }
+        },
+        "responder.DensityProjection": {
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "properties": {
+                "value": {
+                    "type": "number",
+                    "example": 0.4684
+                }
+            }
+        },
+        "responder.DiameterProjection": {
+            "type": "object",
+            "required": [
+                "diameter",
+                "hops"
+            ],
+            "properties": {
+                "diameter": {
+                    "type": "number",
+                    "example": 3
+                },
+                "hops": {
+                    "type": "integer",
+                    "example": 5
+                }
+            }
+        },
+        "responder.FullGraphEdgeProjection": {
+            "type": "object",
+            "required": [
+                "from",
+                "id",
+                "to",
+                "weight"
+            ],
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "example": "6"
+                },
+                "id": {
+                    "type": "string",
+                    "example": "12"
+                },
+                "to": {
+                    "type": "string",
+                    "example": "5"
+                },
+                "weight": {
+                    "type": "number",
+                    "example": 1
+                }
+            }
+        },
+        "responder.FullGraphNodeProjection": {
+            "type": "object",
+            "required": [
+                "id",
+                "label",
+                "size"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "6"
+                },
+                "label": {
+                    "type": "string",
+                    "example": "XR-6"
+                },
+                "size": {
+                    "type": "integer",
+                    "example": 5
+                }
+            }
+        },
+        "responder.FullGraphProjection": {
+            "type": "object",
+            "required": [
+                "edges",
+                "nodes"
+            ],
+            "properties": {
+                "edges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responder.FullGraphEdgeProjection"
+                    }
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responder.FullGraphNodeProjection"
+                    }
+                }
+            }
+        },
+        "responder.GeneralInformationProjection": {
+            "type": "object",
+            "required": [
+                "created_at",
+                "edges",
+                "name",
+                "nodes"
+            ],
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "example": "2022-11-10T12:10:07Z"
+                },
+                "edges": {
+                    "type": "integer",
+                    "example": 26
+                },
+                "name": {
+                    "type": "string",
+                    "example": "SA-Network"
+                },
+                "nodes": {
+                    "type": "integer",
+                    "example": 8
+                }
+            }
+        },
+        "responder.HasCutEdgeProjection": {
+            "type": "object",
+            "required": [
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "type": "boolean",
+                    "example": true
+                }
+            }
+        },
+        "responder.HasCutVertexProjection": {
+            "type": "object",
+            "required": [
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "type": "boolean",
+                    "example": true
+                }
+            }
+        },
+        "responder.QueryEdgeProjection": {
+            "type": "object",
+            "required": [
+                "from",
+                "fromLabel",
+                "to",
+                "toLabel"
+            ],
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "example": "6"
+                },
+                "fromLabel": {
+                    "type": "string",
+                    "example": "XR-6"
+                },
+                "to": {
+                    "type": "string",
+                    "example": "5"
+                },
+                "toLabel": {
+                    "type": "string",
+                    "example": "XR-5"
+                }
+            }
+        },
+        "responder.QueryNodeProjection": {
+            "type": "object",
+            "required": [
+                "id",
+                "label"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "6"
+                },
+                "label": {
+                    "type": "string",
+                    "example": "XR-6"
+                }
+            }
+        },
+        "responder.QueryProjection": {
+            "type": "object",
+            "required": [
+                "edges",
+                "nodes"
+            ],
+            "properties": {
+                "edges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responder.QueryEdgeProjection"
+                    }
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responder.QueryNodeProjection"
+                    }
+                }
+            }
+        },
+        "responder.RobustnessProjection": {
+            "type": "object",
+            "required": [
+                "nodes",
+                "percentage"
+            ],
+            "properties": {
+                "nodes": {
+                    "type": "integer",
+                    "example": 3
+                },
+                "percentage": {
+                    "type": "number",
+                    "example": 33.446
+                }
+            }
+        },
+        "responder.UploadErrorProjection": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string",
+                    "example": "Filesize to large"
+                }
+            }
+        },
+        "responder.UploadProjection": {
+            "type": "object",
+            "required": [
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "type": "boolean",
+                    "example": true
+                }
+            }
+        },
+        "responder.UploadStatusProjection": {
+            "type": "object",
+            "required": [
+                "healthy"
+            ],
+            "properties": {
+                "healthy": {
+                    "type": "boolean",
+                    "example": true
+                }
+            }
+        }
+    }
+}
